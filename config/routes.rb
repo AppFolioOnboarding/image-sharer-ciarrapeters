@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'home#index', as: :tag
 
   resources :feedbacks, only: [:new]
+
+  namespace :api do
+    resource :feedbacks, only: [:create]
+  end
 end
