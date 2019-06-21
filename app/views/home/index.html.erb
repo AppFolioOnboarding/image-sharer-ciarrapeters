@@ -1,2 +1,18 @@
 <h1 class="title" id="header">Welcome to the Super Awesome Image Sharer App!</h1>
 <%= link_to 'Add Image', controller: 'images', action: 'new' %>
+
+<h2>Here are the images you have shared so far:</h2>
+
+<table>
+  <tr>
+    <th>URL</th>
+  </tr>
+
+  <% @images.each do |image| %>
+    <% if image.url %>
+      <tr>
+        <td><%= image_tag(image.url) %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
