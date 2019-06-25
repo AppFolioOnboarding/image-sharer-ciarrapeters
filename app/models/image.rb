@@ -1,6 +1,8 @@
 require 'uri'
 
 class Image < ApplicationRecord
+  acts_as_taggable
+
   validates :url, presence: true
   validate :must_be_valid_url
   validates :url, format: { with: /\.(png|jpg|jpeg)\Z/i }
