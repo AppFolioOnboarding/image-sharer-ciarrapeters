@@ -6,5 +6,6 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_select '#header', 'Welcome to the Super Awesome Image Sharer App!'
+    assert_select 'a[href=?]', '/images/new'
   end
 end
