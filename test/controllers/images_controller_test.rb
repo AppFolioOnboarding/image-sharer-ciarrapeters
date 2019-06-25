@@ -23,4 +23,22 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
       assert_select '[src=?]', @image.url
     end
   end
+
+  test 'create image success' do
+    assert_difference('Image.count', 1) do
+      image_params = { url: 'https://learn.appfolio.com/apm/www/images/apm-logo-v2.png' }
+      post images_path, params: { image: image_params }
+    end
+
+    assert_redirected_to image_path(Image.last)
+  end
+
+  test 'create image failure' do
+    assert_no_difference('Image.count') do
+      image_params = { url: 'dsfdasfdsfdsaf' }
+      post images_path, params: { image: image_params }
+    end
+
+    assert_redirected_to new_image_path
+  end
 end
