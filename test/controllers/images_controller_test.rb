@@ -31,6 +31,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to image_path(Image.last)
+    assert_equal 'Image successfully created!', flash[:notice]
   end
 
   test 'create image failure' do
@@ -40,5 +41,6 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to new_image_path
+    assert_equal 'The image provided was invalid. Please try again.', flash[:notice]
   end
 end
