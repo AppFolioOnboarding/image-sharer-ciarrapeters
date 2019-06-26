@@ -60,4 +60,13 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_image_path
     assert_equal 'The image provided was invalid. Please try again.', flash[:notice]
   end
+
+  test 'delete image' do
+    assert_difference('Image.count', -1) do
+      delete image_path(@image.id)
+    end
+
+    assert_redirected_to root_path
+    assert_select 'img', count: 0
+  end
 end
