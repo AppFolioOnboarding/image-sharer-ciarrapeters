@@ -12,6 +12,8 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     assert_select '#header', 'New Image'
     assert_select 'form[action=?]', '/images'
     assert_select 'input[name=?]', 'image[url]'
+    assert_select 'label', 'Tags (separated by commas)'
+    assert_select 'input[name=?]', 'image[tag_list]'
   end
 
   test 'show image path appears correctly' do
@@ -32,6 +34,20 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to image_path(Image.last)
     assert_equal 'Image successfully created!', flash[:notice]
+  end
+
+  test 'create tags success' do
+    assert_difference('ActsAsTaggableOn::Tag.count', 3) do
+      image_params = { url: 'https://learn.appfolio.com/apm/www/images/apm-logo-v2.png',
+                       tag_list: 'california, appfolio, goleta' }
+      post images_path, params: { image: image_params }
+    end
+
+    assert_redirected_to image_path(Image.last)
+    assert_equal 'Image successfully created!', flash[:notice]
+    Image.last.tags.each do |tag|
+      assert_equal tag.name.in?('california, goleta, appfolio'), true
+    end
   end
 
   test 'create image failure' do
