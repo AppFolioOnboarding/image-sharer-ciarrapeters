@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ImagesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @image = Image.create!(url: 'https://learn.appfolio.com/apm/www/images/apm-logo-v2.png')
+    @image = Image.create!(url: 'https://learn.appfolio.com/apm/www/images/apm-logo-v2.png', tag_list: 'fun')
   end
 
   test 'new image path appears correctly' do
@@ -24,6 +24,7 @@ class ImagesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'img' do
       assert_select '[src=?]', @image.url
     end
+    assert_select '#tags', 'Tags: fun'
   end
 
   test 'create image success' do
