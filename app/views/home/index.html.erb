@@ -10,6 +10,7 @@
     <% if image.url %>
       <tr>
         <td><%= image_tag(image.url, width: '400') %></td>
+        <td id="tags"><strong>Tags:</strong> <%= image.tag_list %></td>
       </tr>
     <% end %>
   <% end %>

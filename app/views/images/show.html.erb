@@ -1,4 +1,5 @@
 <p>
   <strong id="header">Your beautiful image:</strong>
-  <%= image_tag(@image.url) %>
+  <%= image_tag(@image.url) %><br>
+  <p id="tags">Tags: <%= @image.tag_list %></p>
 </p>

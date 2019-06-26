@@ -2,7 +2,8 @@ require 'test_helper'
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
   setup do
-    image = Image.create!(url: 'https://media.glassdoor.com/employerbenefits/o/1/appfolio-employerbenefits-1429212670338.jpg')
+    image = Image.create!(url: 'https://media.glassdoor.com/employerbenefits/o/1/appfolio-employerbenefits-1429212670338.jpg',
+                          tag_list: 'appfolio, office')
     image2 = Image.create!(url: 'https://media.glassdoor.com/employerbenefits/o/2/appfolio-employerbenefits-1429212670338.jpg')
     image3 = Image.create!(url: 'https://media.glassdoor.com/employerbenefits/o/3/appfolio-employerbenefits-1429212670338.jpg')
     @images = [image, image2, image3]
@@ -19,5 +20,6 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
         assert_select '[src=?]', image.url
       end
     end
+    assert_select '#tags', "Tags: #{@images.first.tag_list}"
   end
 end
