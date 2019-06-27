@@ -23,6 +23,8 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
       end
     end
     assert_select '#tags', "Tags: #{@images.first.tag_list}"
+    assert_select 'form[class=?]', 'button_to'
+    assert_select 'form[action=?]', "/images/#{@images.first.id}"
   end
 
   test 'filtering based on tags' do

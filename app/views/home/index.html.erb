@@ -11,6 +11,7 @@
       <tr>
         <td><%= image_tag(image.url, width: '400') %></td>
         <td id="tags"><strong>Tags:</strong> <%= raw(image.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %></td>
+        <td><%= button_to 'Delete', image_path(image), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   <% end %>
