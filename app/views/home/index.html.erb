@@ -11,7 +11,7 @@
       <tr class="js-images">
         <td><%= image_tag(image.url, width: '400', class: 'js-image-url') %></td>
         <td id="tags" class='js-image-tags'><strong>Tags:</strong> <%= raw(image.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %></td>
-        <td><%= button_to 'Delete', image_path(image), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='js-delete-button'><%= button_to 'Delete', image_path(image), method: :delete, data: { confirm: 'Are you sure?' }, class: 'js-delete-image-link' %></td>
       </tr>
     <% end %>
   <% end %>
