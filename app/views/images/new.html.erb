@@ -1,13 +1,13 @@
 <h1 class="title" id="header">New Image</h1>
-<%= form_with scope: :image, url: images_path, local: true do |form| %>
+<%= form_with scope: :image, url: images_path, class: 'js-image-form', local: true do |form| %>
   <p>
     <%= form.label :url %><br>
-    <%= form.text_field :url %><br><br>
+    <%= form.text_field :url, class: 'js-image-url' %><br><br>
     <%= form.label :tag_list, "Tags (separated by commas)" %><br>
-    <%= form.text_field :tag_list %>
+    <%= form.text_field :tag_list, class: 'js-image-tag-list' %>
   </p>
 
   <p>
-    <%= form.submit %>
+    <%= form.submit class: 'js-submit-button'%>
   </p>
 <% end %>
