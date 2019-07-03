@@ -5,7 +5,7 @@ import { expect } from 'chai';
 import Footer from '../components/Footer';
 
 describe('<Footer />', () => {
-  const footer = shallow(<Footer subtext={'Woohoo it is working'} />);
+  const footer = shallow(<Footer subtext="Woohoo it is working" />);
   const text = footer.find('p');
 
   it('should render title correctly', () => {

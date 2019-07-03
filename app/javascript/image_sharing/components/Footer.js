@@ -13,7 +13,7 @@ class Footer extends Component {
       <div>
         <Row>
           <Col>
-            <p className='text-center' style={{fontSize: '10px'}}>
+            <p className='text-center' style={{ fontSize: '10px' }}>
               {subtext}
             </p>
           </Col>

@@ -5,7 +5,7 @@ import { expect } from 'chai';
 import Header from '../components/Header';
 
 describe('<Header />', () => {
-  const header = shallow(<Header title={'Welcome to my humble app'} />);
+  const header = shallow(<Header title="Welcome to my humble app" />);
   const title = header.find('h3');
 
   it('should have an h3', () => {

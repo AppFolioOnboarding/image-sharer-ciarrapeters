@@ -8,13 +8,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header title={'Tell us what you think'} />
-        <Footer subtext={'Copyright: Appfolio Inc. Onboarding'} />
+        <Header title="Tell us what you think" />
+        <Footer subtext="Copyright: Appfolio Inc. Onboarding" />
       </div>
     );
   }
 }
 
-export default inject(
-  'stores'
-)(App);
+export default inject('stores')(App);
