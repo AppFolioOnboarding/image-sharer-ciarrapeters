@@ -16,11 +16,10 @@ class Header extends Component {
             <h3 className='text-center'>
               {title}
             </h3>
-            <h3>Test</h3>
           </Col>
         </Row>
       </div>
-    )
+    );
   }
 }
 
