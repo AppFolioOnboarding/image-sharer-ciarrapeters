@@ -10,6 +10,10 @@ export class PostFeedbackService {
     this.reset();
   }).catch(() => {
   });
+
+  reset() {
+    this.store.reset();
+  }
 }
 
 export default PostFeedbackService;
