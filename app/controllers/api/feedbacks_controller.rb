@@ -1,7 +1,7 @@
 module Api
   class FeedbacksController < ApplicationController
     def create
-      # Implement your create action
+      render json: { message: 'Thank you for giving us feedback!' }, status => :ok
     end
   end
 end
