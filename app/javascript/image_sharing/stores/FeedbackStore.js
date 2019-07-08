@@ -22,6 +22,12 @@ export class FeedbackStore {
   setComments(comments) {
     this.comments = comments;
   }
+
+  @action
+  reset() {
+    this.userName = '';
+    this.comments = '';
+  }
 }
 
 export default FeedbackStore;
