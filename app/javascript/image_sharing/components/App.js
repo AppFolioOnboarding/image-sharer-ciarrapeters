@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
-import { inject } from 'mobx-react';
+import PropTypes from 'prop-types';
+import { inject, observer } from 'mobx-react';
 import Header from './Header';
 import Footer from './Footer';
+import Body from './Body';
 
+@observer
 class App extends Component {
-  /* Add Prop Types check*/
+  static propTypes = {
+    stores: PropTypes.object.isRequired
+  };
+
   render() {
+    const store = this.props.stores.feedbackStore;
     return (
       <div>
         <Header title="Tell us what you think" />
+        <Body store={store} />
         <Footer subtext="Copyright: Appfolio Inc. Onboarding" />
       </div>
     );
